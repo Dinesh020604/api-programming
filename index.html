@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('weather.jpg'); 
+                        background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            background-color: gray; 
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color:#fff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3; 
+        }
+        .weather-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+        p {
+            margin: 5px 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p style="background-image:url('weather.jpg')"></p>
+        <h1>Weather App</h1>
+        <form action="/weather" method="GET">
+            <input type="text" name="city" placeholder="Enter city">
+            <br>
+            <input type="submit" value="Get Weather">
+        </form>
+        <div class="weather-info">
+            {% if weather %}
+                <p style="color:white;">The weather in {{ city }} is: {{ weather }}</p>
+                <p style="color:white;">The temperature in {{ city }} is: {{ temp }}ºF</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
